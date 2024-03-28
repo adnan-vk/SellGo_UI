@@ -23,6 +23,6 @@ class ButtonWidget {
           NavigatorHelper().pushReplacement(
               context: context, replacementPage: replacementpage);
         },
-        child: TextWidget().text(data: text, color: Colors.blue));
+        child: TextWidget().text(data: text, color: Colors.black));
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sellgo/theme/colors.dart';
+import 'package:sellgo/view/signin_screen/sign_in.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 import 'package:sellgo/widgets/textfield_widget.dart';
@@ -56,16 +58,15 @@ class SignUp extends StatelessWidget {
                   child: ButtonWidget().elevatedbutton(
                       context: context,
                       text: "continue",
-                      color: Colors.pink.shade400)),
+                      color: colors().blue)),
               Row(
                 children: [
-                  TextWidget().text(data: "Already have an Account? "),
+                  TextWidget().text(
+                      data: "Already have an Account?", color: Colors.grey),
                   ButtonWidget().textbutton(
-                    text: "Goto Login",
-                    context: context,
-                    // replacementpage: SignIn()
-                    // onpressed: NavigatorHelper().pop(context: context)
-                  )
+                      text: "Login",
+                      context: context,
+                      replacementpage: SignIn())
                 ],
               ),
               // SizedBox(height: size.height * .05),
