@@ -3,9 +3,9 @@ import 'package:sellgo/widgets/navigator_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class ButtonWidget {
-  elevatedbutton({pressed, text, color}) {
+  elevatedbutton({text, color, required context, page}) {
     return ElevatedButton(
-      onPressed: () => pressed,
+      onPressed: () => NavigatorHelper().push(context: context, page: page),
       style: ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(color),
           padding: const MaterialStatePropertyAll(
@@ -16,11 +16,12 @@ class ButtonWidget {
     );
   }
 
-  textbutton({onpressed, text, pushpage, required context,replacementpage}) {
+  textbutton({onpressed, text, pushpage, required context, replacementpage}) {
     return TextButton(
         onPressed: () {
           NavigatorHelper().push(context: context, page: pushpage);
-          NavigatorHelper().pushReplacement(context: context, replacementPage: replacementpage );
+          NavigatorHelper().pushReplacement(
+              context: context, replacementPage: replacementpage);
         },
         child: TextWidget().text(data: text, color: Colors.blue));
   }

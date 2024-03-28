@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sellgo/view/bottom_bar/bottombar.dart';
 import 'package:sellgo/view/signup/sign_up.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/card_widget.dart';
@@ -41,13 +42,17 @@ class SignIn extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ButtonWidget().elevatedbutton(
-                      text: "continue", color: Colors.pink.shade400)),
+                      context: context,
+                      page: BottomBar(),
+                      // pressed: NavigatorHelper()
+                      //     .push(context: context, page: BottomBar()),
+                      text: "continue",
+                      color: Colors.pink.shade400)),
               Row(
                 children: [
                   TextWidget().text(data: "Dont have an Account? "),
                   ButtonWidget().textbutton(
                       text: "Create Account",
-                      // page: const SignUp(),
                       pushpage: SignUp(),
                       context: context)
                 ],
