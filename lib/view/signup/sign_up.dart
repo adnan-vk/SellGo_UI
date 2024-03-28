@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sellgo/view/signin_screen/sign_in.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 import 'package:sellgo/widgets/textfield_widget.dart';
@@ -19,10 +20,22 @@ class SignUp extends StatelessWidget {
               const SizedBox(
                 height: 100,
               ),
-              TextWidget()
-                  .text(data: "Sign In", size: 40.0, weight: FontWeight.bold),
+              TextWidget().text(
+                  data: "Create an Account",
+                  size: size.width * .1,
+                  weight: FontWeight.bold),
               const SizedBox(
                 height: 20,
+              ),
+              textFormField().textformfield(
+                  labeltext: "First Name", color: Colors.grey.shade200),
+              SizedBox(
+                height: size.height * .02,
+              ),
+              textFormField().textformfield(
+                  labeltext: "Last Name", color: Colors.grey.shade200),
+              SizedBox(
+                height: size.height * .02,
               ),
               textFormField().textformfield(
                   labeltext: "Email Address", color: Colors.grey.shade200),
@@ -32,18 +45,26 @@ class SignUp extends StatelessWidget {
               textFormField().textformfield(
                   labeltext: "Password", color: Colors.grey.shade200),
               SizedBox(
+                height: size.height * .02,
+              ),
+              textFormField().textformfield(
+                  labeltext: "Confir Password", color: Colors.grey.shade200),
+              SizedBox(
                 height: size.height * .03,
               ),
               SizedBox(
                   width: double.infinity,
                   child: ButtonWidget().elevatedbutton(
                       text: "continue", color: Colors.pink.shade400)),
-              // Row(
-              //   children: [
-              //     TextWidget().text(data: "Dont have an Account? "),
-              //     ButtonWidget().textbutton(text: "Create One")
-              //   ],
-              // ),
+              Row(
+                children: [
+                  TextWidget().text(data: "Already have an Account? "),
+                  ButtonWidget().textbutton(
+                      text: "Goto Login",
+                      context: context,
+                      replacementpage: SignIn())
+                ],
+              ),
               // SizedBox(height: size.height * .05),
               // CardWidget().card(
               //   // ontap: () =>,

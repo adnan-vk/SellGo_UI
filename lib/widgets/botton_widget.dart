@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sellgo/widgets/navigator_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class ButtonWidget {
@@ -15,14 +16,11 @@ class ButtonWidget {
     );
   }
 
-  textbutton({onpressed, text, page, required context}) {
+  textbutton({onpressed, text, pushpage, required context,replacementpage}) {
     return TextButton(
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => page,
-              ));
+          NavigatorHelper().push(context: context, page: pushpage);
+          NavigatorHelper().pushReplacement(context: context, replacementPage: replacementpage );
         },
         child: TextWidget().text(data: text, color: Colors.blue));
   }
