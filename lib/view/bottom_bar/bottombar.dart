@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sellgo/view/home_screen/home.dart';
 import 'package:sellgo/view/signin_screen/sign_in.dart';
 import 'package:sellgo/view/signup/sign_up.dart';
 import 'package:sellgo/view/splash/splash.dart';
@@ -44,5 +45,5 @@ class _BottomBarState extends State<BottomBar> {
     );
   }
 
-  final List tabs = [SignIn(), SignUp(), Splash()];
+  final List tabs = [HomeScreen(), SignUp(), Splash()];
 }

@@ -19,8 +19,14 @@ class SignUp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 100,
+                height: 80,
               ),
+              IconButton(
+                  style: ButtonStyle(),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back_ios)),
               TextWidget().text(
                   data: "Create an Account",
                   size: size.width * .1,
@@ -49,7 +55,7 @@ class SignUp extends StatelessWidget {
                 height: size.height * .02,
               ),
               textFormField().textformfield(
-                  labeltext: "Confir Password", color: Colors.grey.shade200),
+                  labeltext: "Confirm Password", color: Colors.grey.shade200),
               SizedBox(
                 height: size.height * .03,
               ),

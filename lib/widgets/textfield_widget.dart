@@ -48,7 +48,7 @@ class textFormField {
       keyboardType: keytype,
       controller: controller,
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         labelText: labeltext,
         filled: true,
         fillColor: color,
@@ -56,6 +56,23 @@ class textFormField {
       onChanged: (value) {
         onchange;
       },
+    );
+  }
+
+  searchtextfield({String? label, preicon}) {
+    return TextFormField(
+      style: TextStyle(fontSize: 14.0),
+      decoration: InputDecoration(
+          prefixIcon: Icon(preicon),
+          labelText: label,
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          filled: true,
+          fillColor: Color.fromARGB(255, 224, 223, 223)),
     );
   }
 }
