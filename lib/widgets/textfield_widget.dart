@@ -48,8 +48,9 @@ class textFormField {
       keyboardType: keytype,
       controller: controller,
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        border: OutlineInputBorder(borderSide: BorderSide.none),
         labelText: labeltext,
+        labelStyle: TextStyle(color: const Color.fromARGB(255, 185, 185, 185)),
         filled: true,
         fillColor: color,
       ),
@@ -63,8 +64,12 @@ class textFormField {
     return TextFormField(
       style: TextStyle(fontSize: 14.0),
       decoration: InputDecoration(
-          prefixIcon: Icon(preicon),
-          labelText: label,
+          prefixIcon: Icon(
+            preicon,
+            color: Colors.black,
+          ),
+          hintText: label,
+          hintStyle: TextStyle(color: Colors.black),
           contentPadding:
               EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           border: OutlineInputBorder(
@@ -72,7 +77,7 @@ class textFormField {
             borderRadius: BorderRadius.circular(50),
           ),
           filled: true,
-          fillColor: Color.fromARGB(255, 224, 223, 223)),
+          fillColor: Color.fromARGB(255, 234, 233, 233)),
     );
   }
 }

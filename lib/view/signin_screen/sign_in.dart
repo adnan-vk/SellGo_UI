@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/view/bottom_bar/bottombar.dart';
+import 'package:sellgo/view/signin_screen/widgets/signin_widgets.dart';
 import 'package:sellgo/view/signup/sign_up.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
-import 'package:sellgo/widgets/card_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
-import 'package:sellgo/widgets/textfield_widget.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -16,7 +15,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -24,19 +23,13 @@ class SignIn extends StatelessWidget {
                 height: 100,
               ),
               TextWidget().text(
-                  data: "Sign In",
-                  size: size.width * .13,
+                  data: "Sign in",
+                  size: size.width * .1,
                   weight: FontWeight.bold),
               const SizedBox(
                 height: 20,
               ),
-              textFormField().textformfield(
-                  labeltext: "Email Address", color: Colors.grey.shade200),
-              SizedBox(
-                height: size.height * .02,
-              ),
-              textFormField().textformfield(
-                  labeltext: "Password", color: Colors.grey.shade200),
+              signinWidgets().textfields(context),
               SizedBox(
                 height: size.height * .03,
               ),
@@ -47,33 +40,23 @@ class SignIn extends StatelessWidget {
                       page: BottomBar(),
                       text: "continue",
                       color: colors().blue)),
+              SizedBox(
+                height: size.height * .01,
+              ),
               Row(
                 children: [
-                  TextWidget()
-                      .text(data: "Dont have an Account?", color: Colors.grey),
+                  TextWidget().text(
+                      data: "Dont have an Account?",
+                      color: Colors.grey,
+                      size: size.width * .04),
                   ButtonWidget().textbutton(
                       text: "Create Account",
                       pushpage: SignUp(),
                       context: context)
                 ],
               ),
-              SizedBox(height: size.height * .05),
-              CardWidget().card(
-                // ontap: () =>,
-                url:
-                    'https://cdn.iconscout.com/icon/free/png-256/free-google-1772223-1507807.png',
-                text: "Continue With Google", context: context,
-              ),
-              CardWidget().card(
-                url: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
-                text: "Continue With GitHub",
-                context: context,
-              ),
-              CardWidget().card(
-                url: 'https://cdn-icons-png.freepik.com/256/100/100313.png',
-                text: "Continue With OTP",
-                context: context,
-              ),
+              SizedBox(height: size.height * .07),
+              signinWidgets().cardwidget(context)
             ],
           ),
         ),

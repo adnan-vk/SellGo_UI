@@ -1,6 +1,6 @@
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sellgo/view/home_screen/home.dart';
-import 'package:sellgo/view/signin_screen/sign_in.dart';
 import 'package:sellgo/view/signup/sign_up.dart';
 import 'package:sellgo/view/splash/splash.dart';
 
@@ -29,15 +29,15 @@ class _BottomBarState extends State<BottomBar> {
         onTap: _onTabTapped,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(EneftyIcons.home_outline),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
+            icon: Icon(Icons.favorite_outline_sharp),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(EneftyIcons.profile_circle_outline),
             label: 'Person',
           ),
         ],

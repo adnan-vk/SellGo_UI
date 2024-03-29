@@ -9,10 +9,14 @@ class circleavatar {
       backgroundColor: colors().blue,
     );
   }
-  categoryavatar({text,child}){
+
+  categoryavatar({text, child}) {
     return Column(
       children: [
-        circleavatar().circleAvatar(child: child,radius: 30.0),
+        circleavatar().circleAvatar(child: child, radius: 30.0),
+        SizedBox(
+          height: 6,
+        ),
         Text(text)
       ],
     );
