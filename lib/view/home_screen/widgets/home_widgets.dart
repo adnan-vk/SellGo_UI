@@ -70,63 +70,59 @@ class HomeWidgets {
         ),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {},
-            child: Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                        child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey,
-                          image: DecorationImage(
-                              image:
-                                  AssetImage('assets/images/dummy image.jpg'),
-                              fit: BoxFit.cover)),
-                    )),
-                    SizedBox(
-                      height: size.height * .005,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: size.width * .26,
-                          child: TextWidget().text(
-                            data: "₹100",
-                            size: size.width * .055,
-                            weight: FontWeight.bold,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Icon(
-                            EneftyIcons.heart_outline,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ],
-                    ),
-                    TextWidget().text(
-                      data: "Product Name",
-                      size: size.width * .035,
-                    ),
-                    SizedBox(height: size.height * .005),
-                    TextWidget().text(
-                        data: 'kakkanjery, malapppuram',
-                        size: size.width * .028,
+          return Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                      child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
                         color: Colors.grey,
-                        weight: FontWeight.bold),
-                  ],
-                ),
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/dummy image.jpg'),
+                            fit: BoxFit.cover)),
+                  )),
+                  SizedBox(
+                    height: size.height * .005,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: size.width * .26,
+                        child: TextWidget().text(
+                          data: "₹100",
+                          size: size.width * .055,
+                          weight: FontWeight.bold,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Icon(
+                          EneftyIcons.heart_outline,
+                          color: Colors.red,
+                        ),
+                      ),
+                    ],
+                  ),
+                  TextWidget().text(
+                    data: "Product Name",
+                    size: size.width * .035,
+                  ),
+                  SizedBox(height: size.height * .005),
+                  TextWidget().text(
+                      data: 'kakkanjery, malapppuram',
+                      size: size.width * .028,
+                      color: Colors.grey,
+                      weight: FontWeight.bold),
+                ],
               ),
             ),
           );
