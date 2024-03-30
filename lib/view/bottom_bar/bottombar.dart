@@ -1,6 +1,5 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/view/add_item/additem.dart';
 import 'package:sellgo/view/favourites/favourites.dart';

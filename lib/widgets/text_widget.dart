@@ -5,7 +5,11 @@ class TextWidget {
     return Text(
       data,
       style: TextStyle(
-          fontSize: size, fontWeight: weight, color: color, fontStyle: style),
+          overflow: TextOverflow.ellipsis,
+          fontSize: size,
+          fontWeight: weight,
+          color: color,
+          fontStyle: style),
       textAlign: align,
     );
   }

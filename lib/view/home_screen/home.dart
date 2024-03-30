@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
-            HomeWidgets().topwidget()
+            HomeWidgets().topwidget(context)
           ],
         ),
         centerTitle: true,
@@ -38,9 +38,9 @@ class HomeScreen extends StatelessWidget {
                 ButtonWidget().textbutton(context: context, text: "See All")
               ],
             ),
-            HomeWidgets().categoryAvatarListView(),
+            HomeWidgets().categoryAvatarListView(context),
             SizedBox(height: 15),
-            HomeWidgets().productList()
+            HomeWidgets().productList(context)
           ],
         ),
       ),

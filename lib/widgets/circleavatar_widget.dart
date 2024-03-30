@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sellgo/theme/colors.dart';
+import 'package:sellgo/widgets/text_widget.dart';
 
 class circleavatar {
   circleAvatar({radius, child}) {
@@ -17,7 +18,11 @@ class circleavatar {
         SizedBox(
           height: 6,
         ),
-        Text(text)
+        SizedBox(
+            width: 60,
+            child: Center(
+              child: TextWidget().text(data: text),
+            ))
       ],
     );
   }

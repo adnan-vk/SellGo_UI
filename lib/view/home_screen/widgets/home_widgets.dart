@@ -5,18 +5,19 @@ import 'package:sellgo/widgets/text_widget.dart';
 import 'package:sellgo/widgets/textfield_widget.dart';
 
 class HomeWidgets {
-  topwidget() {
+  topwidget(context) {
+    final size = MediaQuery.of(context).size;
     return Row(
       children: [
         circleavatar().circleAvatar(radius: 20.0),
         SizedBox(
-          width: 10,
+          width: size.width * .02,
         ),
         Expanded(
             child: textFormField().searchtextfield(
                 preicon: EneftyIcons.search_normal_2_outline, label: "Search")),
         SizedBox(
-          width: 10,
+          width: size.width * .02,
         ),
         circleavatar().circleAvatar(
             child: Icon(
@@ -27,47 +28,38 @@ class HomeWidgets {
     );
   }
 
-  categoryAvatarListView() {
+  categoryAvatarListView(context) {
+    final size = MediaQuery.of(context).size;
+    final List<String> categories = [
+      'hello',
+      'hello',
+      'hello',
+      'hello',
+      'hello'
+    ];
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          circleavatar().categoryavatar(
-            text: "hello",
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          circleavatar().categoryavatar(
-            text: "hello",
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          circleavatar().categoryavatar(
-            text: "hello",
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          circleavatar().categoryavatar(
-            text: "hello",
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          circleavatar().categoryavatar(
-            text: "hello",
-          ),
-          SizedBox(
-            width: 15,
-          ),
-        ],
+        children: List.generate(categories.length * 2 - 1, (index) {
+          if (index.isEven) {
+            int categoryIndex = index ~/ 2;
+            return Column(
+              children: [
+                circleavatar().categoryavatar(text: categories[categoryIndex])
+              ],
+            );
+          } else {
+            return SizedBox(
+              width: size.width * .03,
+            );
+          }
+        }),
       ),
     );
   }
 
-  productList() {
+  productList(context) {
+    final size = MediaQuery.of(context).size;
     return Expanded(
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -78,29 +70,20 @@ class HomeWidgets {
         ),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return Card(
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextWidget().text(
-                    data: "Product Name",
-                    size: 18.0,
-                    weight: FontWeight.bold,
-                  ),
-                  const SizedBox(height: 4),
-                  TextWidget().text(
-                    data: "Price: ₹100",
-                    size: 14.0,
-                  ),
-                  const SizedBox(height: 8),
-                  Expanded(
-                    child: Container(
+          return GestureDetector(
+            onTap: () {},
+            child: Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                        child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.grey,
@@ -108,35 +91,42 @@ class HomeWidgets {
                               image:
                                   AssetImage('assets/images/dummy image.jpg'),
                               fit: BoxFit.cover)),
+                    )),
+                    SizedBox(
+                      height: size.height * .005,
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.favorite_border_outlined,
-                        color: Colors.red,
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            EneftyIcons.star_bold,
-                            color: Colors.amber,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: size.width * .26,
+                          child: TextWidget().text(
+                            data: "₹100",
+                            size: size.width * .055,
+                            weight: FontWeight.bold,
                           ),
-                          Text(
-                            "4.5",
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            EneftyIcons.heart_outline,
+                            color: Colors.red,
                           ),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
+                        ),
+                      ],
+                    ),
+                    TextWidget().text(
+                      data: "Product Name",
+                      size: size.width * .035,
+                    ),
+                    SizedBox(height: size.height * .005),
+                    TextWidget().text(
+                        data: 'kakkanjery, malapppuram',
+                        size: size.width * .028,
+                        color: Colors.grey,
+                        weight: FontWeight.bold),
+                  ],
+                ),
               ),
             ),
           );
