@@ -1,8 +1,11 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sellgo/theme/colors.dart';
+import 'package:sellgo/view/add_item/additem.dart';
+import 'package:sellgo/view/favourites/favourites.dart';
 import 'package:sellgo/view/home_screen/home.dart';
-import 'package:sellgo/view/signup/sign_up.dart';
-import 'package:sellgo/view/splash/splash.dart';
+import 'package:sellgo/view/profile/profile.dart';
 
 class BottomBar extends StatefulWidget {
   BottomBar({super.key});
@@ -25,6 +28,9 @@ class _BottomBarState extends State<BottomBar> {
     return Scaffold(
       body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: colors().blue,
+        unselectedItemColor: colors().black,
+        elevation: 9,
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
         items: [
@@ -33,8 +39,12 @@ class _BottomBarState extends State<BottomBar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_outline_sharp),
+            icon: Icon(EneftyIcons.heart_outline),
             label: 'Favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(EneftyIcons.add_square_outline),
+            label: 'Add Item',
           ),
           BottomNavigationBarItem(
             icon: Icon(EneftyIcons.profile_circle_outline),
@@ -45,5 +55,5 @@ class _BottomBarState extends State<BottomBar> {
     );
   }
 
-  final List tabs = [HomeScreen(), SignUp(), Splash()];
+  final List tabs = [HomeScreen(), Favourites(), AddItem(), Profile()];
 }

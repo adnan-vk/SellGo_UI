@@ -9,15 +9,25 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding:
-            const EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),
-        child: Column(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Column(
           children: [
             SizedBox(
-              height: 70,
+              height: 25,
             ),
-            HomeWidgets().topwidget(),
+            HomeWidgets().topwidget()
+          ],
+        ),
+        centerTitle: true,
+        toolbarHeight: 70,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 10, left: 15, right: 15),
+        child: Column(
+          children: [
             SizedBox(
               height: 15,
             ),
@@ -29,6 +39,8 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             HomeWidgets().categoryAvatarListView(),
+            SizedBox(height: 15),
+            HomeWidgets().productList()
           ],
         ),
       ),
