@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/view/signin_screen/sign_in.dart';
 
 class Splash extends StatelessWidget {
@@ -8,7 +7,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colors().blue,
+      // backgroundColor: colors().blue,
       body: GestureDetector(
         onTap: () => NavigatorHelper().pushReplacement(
           context: context,
@@ -16,7 +15,7 @@ class Splash extends StatelessWidget {
         ),
         child: Center(
           child: Image.asset(
-            'assets/images/logo.png',
+            'assets/images/logo blue.png',
             height: double.infinity,
           ),
         ),

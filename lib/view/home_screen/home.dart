@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(40, 196, 213, 227),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         toolbarHeight: 70,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 10, left: 15, right: 15),
+        padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
         child: Column(
           children: [
             SizedBox(

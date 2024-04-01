@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sellgo/theme/colors.dart';
@@ -35,10 +36,10 @@ class _AddItemState extends State<AddItem> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: TextWidget().text(data: "Add Items", color: colors().black),
+        title: TextWidget().text(data: "Add Item", color: colors().black),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,22 +47,52 @@ class _AddItemState extends State<AddItem> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Product Name',
+              Text('Add Product Images',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
+              SizedBox(height: 16),
+              Container(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _productImages.length + 1,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        if (index == _productImages.length) {
+                          _showImagePicker(context);
+                        }
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 10),
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(10),
+                          image: index < _productImages.length
+                              ? DecorationImage(
+                                  image: FileImage(_productImages[index]),
+                                  fit: BoxFit.cover,
+                                )
+                              : null,
+                        ),
+                        child: index == _productImages.length
+                            ? Icon(Icons.add, size: 40, color: Colors.grey[600])
+                            : null,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(height: 24),
               TextFormField(
                 controller: _productNameController,
                 decoration: InputDecoration(
-                  hintText: 'Enter product name',
+                  labelText: 'Product Name',
                   border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 ),
               ),
               SizedBox(height: 16),
-              Text('Category',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
               DropdownButtonFormField<String>(
                 value: _selectedCategory,
                 items: categories.map((String category) {
@@ -72,93 +103,51 @@ class _AddItemState extends State<AddItem> {
                 }).toList(),
                 onChanged: (String? value) {
                   setState(() {
-                    _selectedCategory = value!;
+                    _selectedCategory = value;
                   });
                 },
                 decoration: InputDecoration(
-                  hintText: 'Select category',
+                  labelText: 'Category',
                   border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 ),
               ),
               SizedBox(height: 16),
-              Text('Product Description',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
               TextFormField(
                 controller: _productDescriptionController,
                 maxLines: 3,
                 decoration: InputDecoration(
-                  hintText: 'Enter product description',
+                  labelText: 'Product Description',
                   border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 ),
               ),
               SizedBox(height: 16),
-              Text('Price',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
               TextFormField(
                 controller: _productPriceController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  hintText: 'Enter price',
+                  labelText: 'Price',
                   border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                ),
-              ),
-              SizedBox(height: 16),
-              Text('Product Images',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
-              SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: _productImages.length + 1,
-                  itemBuilder: (BuildContext context, int index) {
-                    if (index == _productImages.length) {
-                      return GestureDetector(
-                        onTap: () {
-                          _showImagePicker(context);
-                        },
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Icon(Icons.add, size: 40),
-                        ),
-                      );
-                    } else {
-                      return Container(
-                        width: 100,
-                        height: 100,
-                        margin: EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: FileImage(_productImages[index]),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      );
-                    }
-                  },
                 ),
               ),
               SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle saving the item data here
-                },
-                child: Text('Save Item'),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 16),
+                    child: Text(
+                      'Save Item',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: colors().blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
