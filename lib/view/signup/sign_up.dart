@@ -29,7 +29,7 @@ class SignUp extends StatelessWidget {
                   icon: Icon(Icons.arrow_back_ios)),
               TextWidget().text(
                   data: "Create an Account",
-                  size: size.width * .1,
+                  size: size.width * .08,
                   weight: FontWeight.bold),
               const SizedBox(
                 height: 20,
@@ -43,11 +43,18 @@ class SignUp extends StatelessWidget {
                   child: ButtonWidget().elevatedbutton(
                       context: context,
                       text: "continue",
+                      textcolor: Colors.white,
                       color: colors().blue)),
+              SizedBox(
+                height: size.height * .02,
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextWidget().text(
-                      data: "Already have an Account?", color: Colors.grey),
+                      data: "Already have an Account? ",
+                      color: Colors.grey,
+                      size: size.width * .025),
                   ButtonWidget().textbutton(
                       text: "Login",
                       context: context,

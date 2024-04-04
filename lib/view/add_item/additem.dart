@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sellgo/theme/colors.dart';
+import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
+import 'package:sellgo/widgets/textfield_widget.dart';
 
 class AddItem extends StatefulWidget {
   const AddItem({Key? key}) : super(key: key);
@@ -13,26 +15,14 @@ class AddItem extends StatefulWidget {
 }
 
 class _AddItemState extends State<AddItem> {
-  TextEditingController _productNameController = TextEditingController();
-  TextEditingController _productDescriptionController = TextEditingController();
-  TextEditingController _productPriceController = TextEditingController();
   String? _selectedCategory;
   List<File> _productImages = [];
 
   final List<String> categories = ['Category A', 'Category B', 'Category C'];
 
-  Future<void> _getImage(ImageSource source) async {
-    final picker = ImagePicker();
-    final pickedImage = await picker.pickImage(source: source);
-    if (pickedImage != null) {
-      setState(() {
-        _productImages.add(File(pickedImage.path));
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -47,8 +37,10 @@ class _AddItemState extends State<AddItem> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Add Product Images',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              TextWidget().text(
+                  data: "Add Product Images",
+                  size: size.width * .0423,
+                  weight: FontWeight.bold),
               SizedBox(height: 16),
               Container(
                 height: 120,
@@ -85,13 +77,8 @@ class _AddItemState extends State<AddItem> {
                 ),
               ),
               SizedBox(height: 24),
-              TextFormField(
-                controller: _productNameController,
-                decoration: InputDecoration(
-                  labelText: 'Product Name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              textFormField().textformfield(
+                  labeltext: "Product Name", color: Colors.grey.shade200),
               SizedBox(height: 16),
               DropdownButtonFormField<String>(
                 value: _selectedCategory,
@@ -107,48 +94,29 @@ class _AddItemState extends State<AddItem> {
                   });
                 },
                 decoration: InputDecoration(
-                  labelText: 'Category',
-                  border: OutlineInputBorder(),
-                ),
+                    labelText: 'Category',
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
+                    filled: true,
+                    fillColor: Colors.grey.shade200),
               ),
               SizedBox(height: 16),
-              TextFormField(
-                controller: _productDescriptionController,
-                maxLines: 3,
-                decoration: InputDecoration(
-                  labelText: 'Product Description',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              textFormField().textformfield(
+                  labeltext: "Product Description",
+                  color: Colors.grey.shade200),
               SizedBox(height: 16),
-              TextFormField(
-                controller: _productPriceController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: 'Price',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              textFormField().textformfield(
+                  labeltext: "Price", color: Colors.grey.shade200),
               SizedBox(height: 24),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 16),
-                    child: Text(
-                      'Save Item',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: colors().blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
+                  child: SizedBox(
+                width: size.width * .5,
+                child: ButtonWidget().elevatedbutton(
+                  context: context,
+                  text: "Add Item",
+                  color: colors().blue,
+                  textcolor: Colors.white,
                 ),
-              ),
+              )),
             ],
           ),
         ),
@@ -187,11 +155,13 @@ class _AddItemState extends State<AddItem> {
     );
   }
 
-  @override
-  void dispose() {
-    _productNameController.dispose();
-    _productDescriptionController.dispose();
-    _productPriceController.dispose();
-    super.dispose();
+  Future<void> _getImage(ImageSource source) async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: source);
+    if (pickedImage != null) {
+      setState(() {
+        _productImages.add(File(pickedImage.path));
+      });
+    }
   }
 }

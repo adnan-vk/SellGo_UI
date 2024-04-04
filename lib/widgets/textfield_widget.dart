@@ -14,6 +14,7 @@ class textFormField {
       max,
       minline,
       color,
+      // maxline,
       bool obsc = false}) {
     return TextFormField(
       validator: (value) {
@@ -43,6 +44,7 @@ class textFormField {
         return null;
       },
       obscureText: obsc,
+      // maxLines: maxline,
       minLines: minline,
       maxLength: max,
       keyboardType: keytype,
@@ -50,7 +52,7 @@ class textFormField {
       decoration: InputDecoration(
         border: OutlineInputBorder(borderSide: BorderSide.none),
         labelText: labeltext,
-        labelStyle: TextStyle(color: const Color.fromARGB(255, 185, 185, 185)),
+        labelStyle: TextStyle(color: Colors.black),
         filled: true,
         fillColor: color,
       ),

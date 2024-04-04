@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TextWidget {
   text({data, size, weight, color, align, style}) {
     return Text(
       data,
-      style: TextStyle(
-          overflow: TextOverflow.ellipsis,
-          fontSize: size,
-          fontWeight: weight,
-          color: color,
-          fontStyle: style),
+      style: GoogleFonts.montserrat(
+          fontSize: size, fontWeight: weight, color: color, fontStyle: style),
       textAlign: align,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

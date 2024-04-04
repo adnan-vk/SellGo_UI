@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/card_widget.dart';
 import 'package:sellgo/widgets/textfield_widget.dart';
 
@@ -14,6 +15,16 @@ class signinWidgets {
         ),
         textFormField().textformfield(
             labeltext: "Password", color: Colors.grey.shade200, obsc: true),
+        SizedBox(
+          height: 5,
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: ButtonWidget().textbutton(
+              context: context,
+              text: "Forgot Password?",
+              weight: FontWeight.bold),
+        )
       ],
     );
   }

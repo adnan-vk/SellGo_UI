@@ -39,17 +39,20 @@ class SignIn extends StatelessWidget {
                       context: context,
                       page: BottomBar(),
                       text: "continue",
+                      textcolor: Colors.white,
                       color: colors().blue)),
               SizedBox(
                 height: size.height * .01,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextWidget().text(
-                      data: "Dont have an Account?",
+                      data: "Dont have an Account? ",
                       color: Colors.grey,
-                      size: size.width * .04),
+                      size: size.width * .025),
                   ButtonWidget().textbutton(
+                      weight: FontWeight.bold,
                       text: "Create Account",
                       pushpage: SignUp(),
                       context: context)

@@ -3,7 +3,7 @@ import 'package:sellgo/widgets/navigator_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class ButtonWidget {
-  elevatedbutton({text, color, required context, page}) {
+  elevatedbutton({text, color, required context, page, textcolor}) {
     final size = MediaQuery.of(context).size;
     return ElevatedButton(
         onPressed: () => NavigatorHelper().push(context: context, page: page),
@@ -13,18 +13,33 @@ class ButtonWidget {
                 EdgeInsets.only(top: 15, bottom: 15)),
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40)))),
-        child: TextWidget().text(data: text, size: size.width * .055));
+        child: TextWidget().text(
+          data: text,
+          size: size.width * .055,
+          color: textcolor,
+        ));
   }
 
-  textbutton({onpressed, text, pushpage, required context, replacementpage}) {
+  textbutton(
+      {onpressed, text, pushpage, required context, replacementpage, weight}) {
     final size = MediaQuery.of(context).size;
-    return TextButton(
+    return GestureDetector(
+      onTap: () {
+        NavigatorHelper().push(context: context, page: pushpage);
+      },
+      child: TextWidget().text(
+          data: text,
+          color: Colors.black,
+          size: size.width * .025,
+          weight: weight),
+    );
+  }
+
+  iconbutton({onpressed, icon}) {
+    return IconButton(
         onPressed: () {
-          NavigatorHelper().push(context: context, page: pushpage);
-          NavigatorHelper().pushReplacement(
-              context: context, replacementPage: replacementpage);
+          onpressed;
         },
-        child: TextWidget()
-            .text(data: text, color: Colors.black, size: size.width * .04));
+        icon: icon);
   }
 }

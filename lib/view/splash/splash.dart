@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sellgo/view/signin_screen/sign_in.dart';
+import 'package:sellgo/view/getstart/get_start.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class Splash extends StatelessWidget {
       body: GestureDetector(
         onTap: () => NavigatorHelper().pushReplacement(
           context: context,
-          replacementPage: SignIn(),
+          replacementPage: GetStart(),
         ),
         child: Center(
           child: Image.asset(
