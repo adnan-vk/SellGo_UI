@@ -1,6 +1,10 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:sellgo/theme/colors.dart';
+import 'package:sellgo/view/details/details.dart';
+import 'package:sellgo/view/notification/notification.dart';
 import 'package:sellgo/widgets/circleavatar_widget.dart';
+import 'package:sellgo/widgets/navigator_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 import 'package:sellgo/widgets/textfield_widget.dart';
 
@@ -9,7 +13,7 @@ class HomeWidgets {
     final size = MediaQuery.of(context).size;
     return Row(
       children: [
-        circleavatar().circleAvatar(radius: 20.0),
+        circleavatar().circleAvatar(radius: 20.0, bgcolor: colors().blue),
         SizedBox(
           width: size.width * .02,
         ),
@@ -19,11 +23,16 @@ class HomeWidgets {
         SizedBox(
           width: size.width * .02,
         ),
-        circleavatar().circleAvatar(
-            child: Icon(
-          EneftyIcons.notification_outline,
-          color: Colors.white,
-        )),
+        GestureDetector(
+          onTap: () => NavigatorHelper()
+              .push(context: context, page: NotificationScreen()),
+          child: circleavatar().circleAvatar(
+              bgcolor: colors().blue,
+              child: Icon(
+                EneftyIcons.notification_outline,
+                color: Colors.white,
+              )),
+        )
       ],
     );
   }
@@ -82,61 +91,67 @@ class HomeWidgets {
         ),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                    child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey,
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/dummy image.jpg'),
-                          fit: BoxFit.cover)),
+          return GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Details(),
                 )),
-                SizedBox(
-                  height: size.height * .005,
-                ),
-                Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width: size.width * .26,
-                              child: TextWidget().text(
-                                data: "₹100",
-                                size: size.width * .055,
-                                weight: FontWeight.bold,
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                      child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey,
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/dummy image.jpg'),
+                            fit: BoxFit.cover)),
+                  )),
+                  SizedBox(
+                    height: size.height * .005,
+                  ),
+                  Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: size.width * .26,
+                                child: TextWidget().text(
+                                  data: "₹100",
+                                  size: size.width * .055,
+                                  weight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Icon(
-                                EneftyIcons.heart_outline,
-                                color: Colors.red,
+                              GestureDetector(
+                                onTap: () {},
+                                child: Icon(
+                                  EneftyIcons.heart_outline,
+                                  color: Colors.red,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        TextWidget().text(
-                          data: "Product Name",
-                          size: size.width * .035,
-                        ),
-                        SizedBox(height: size.height * .005),
-                        TextWidget().text(
-                            data: 'kakkanjery, malapppuram',
-                            size: size.width * .028,
-                            color: Colors.grey,
-                            weight: FontWeight.bold),
-                        // Divider(color: Colors.black, thickness: 1, )
-                      ],
-                    )),
-              ],
+                            ],
+                          ),
+                          TextWidget().text(
+                            data: "Product Name",
+                            size: size.width * .035,
+                          ),
+                          SizedBox(height: size.height * .005),
+                          TextWidget().text(
+                              data: 'kakkanjery, malapppuram',
+                              size: size.width * .028,
+                              color: Colors.grey,
+                              weight: FontWeight.bold),
+                        ],
+                      )),
+                ],
+              ),
             ),
           );
         },

@@ -57,6 +57,7 @@ class SignUp extends StatelessWidget {
                       size: size.width * .025),
                   ButtonWidget().textbutton(
                       text: "Login",
+                      weight: FontWeight.bold,
                       context: context,
                       replacementpage: SignIn())
                 ],

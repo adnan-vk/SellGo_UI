@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class textFormField {
   textformfield(
       {controller,
-      labeltext,
+      hinttext,
       onchange,
       validator,
       String? type,
@@ -14,12 +14,12 @@ class textFormField {
       max,
       minline,
       color,
-      // maxline,
+      maxline,
       bool obsc = false}) {
     return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return "Please enter $labeltext";
+          return "Please enter $hinttext";
         } else if (type == "Email") {
           if (!EmailValidator.validate(value)) {
             return "Please enter a valid email address";
@@ -44,14 +44,14 @@ class textFormField {
         return null;
       },
       obscureText: obsc,
-      // maxLines: maxline,
+      maxLines: maxline,
       minLines: minline,
       maxLength: max,
       keyboardType: keytype,
       controller: controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderSide: BorderSide.none),
-        labelText: labeltext,
+        hintText: hinttext,
         labelStyle: TextStyle(color: Colors.black),
         filled: true,
         fillColor: color,

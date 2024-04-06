@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class circleavatar {
-  circleAvatar({radius, child}) {
+  circleAvatar({radius, child, bgcolor}) {
     return CircleAvatar(
       radius: radius,
       child: child,
-      backgroundColor: colors().blue,
+      backgroundColor: bgcolor,
     );
   }
 

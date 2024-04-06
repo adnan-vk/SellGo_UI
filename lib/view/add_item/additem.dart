@@ -78,7 +78,7 @@ class _AddItemState extends State<AddItem> {
               ),
               SizedBox(height: 24),
               textFormField().textformfield(
-                  labeltext: "Product Name", color: Colors.grey.shade200),
+                  hinttext: "Product Name", color: Colors.grey.shade200),
               SizedBox(height: 16),
               DropdownButtonFormField<String>(
                 value: _selectedCategory,
@@ -101,11 +101,12 @@ class _AddItemState extends State<AddItem> {
               ),
               SizedBox(height: 16),
               textFormField().textformfield(
-                  labeltext: "Product Description",
+                  maxline: 3,
+                  hinttext: "Product Description",
                   color: Colors.grey.shade200),
               SizedBox(height: 16),
               textFormField().textformfield(
-                  labeltext: "Price", color: Colors.grey.shade200),
+                  hinttext: "Price", color: Colors.grey.shade200),
               SizedBox(height: 24),
               Center(
                   child: SizedBox(

@@ -9,12 +9,15 @@ class signinWidgets {
     return Column(
       children: [
         textFormField().textformfield(
-            labeltext: "Email Address", color: Colors.grey.shade200),
+            maxline: 1, hinttext: "Email Address", color: Colors.grey.shade200),
         SizedBox(
           height: size.height * .02,
         ),
         textFormField().textformfield(
-            labeltext: "Password", color: Colors.grey.shade200, obsc: true),
+            maxline: 1,
+            hinttext: "Password",
+            color: Colors.grey.shade200,
+            obsc: true),
         SizedBox(
           height: 5,
         ),

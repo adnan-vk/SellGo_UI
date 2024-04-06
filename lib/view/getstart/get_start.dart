@@ -32,8 +32,8 @@ class GetStart extends StatelessWidget {
                     height: size.height * .02,
                   ),
                   TextWidget()
-                      .text(data: "Give a Second Life To Loved", size: 20.0),
-                  TextWidget().text(data: "Treasures", size: 20.0),
+                      .text(data: "\"Give a Second Life To Loved", size: 20.0),
+                  TextWidget().text(data: "Treasures\"", size: 20.0),
                   SizedBox(
                     height: size.height * .02,
                   ),

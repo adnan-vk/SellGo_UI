@@ -10,7 +10,7 @@ class ButtonWidget {
         style: ButtonStyle(
             backgroundColor: MaterialStatePropertyAll(color),
             padding: const MaterialStatePropertyAll(
-                EdgeInsets.only(top: 15, bottom: 15)),
+                EdgeInsets.only(top: 10, bottom: 10)),
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40)))),
         child: TextWidget().text(

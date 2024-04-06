@@ -34,7 +34,10 @@ class favWidget {
           ),
         ),
         trailing: IconButton(
-          icon: Icon(EneftyIcons.heart_bold),
+          icon: Icon(
+            EneftyIcons.heart_bold,
+            color: Colors.red,
+          ),
           onPressed: () {},
         ),
       ),

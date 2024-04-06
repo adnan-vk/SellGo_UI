@@ -1,7 +1,6 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sellgo/view/profile/widgets/profile_widget.dart';
-import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class Profile extends StatelessWidget {
@@ -14,7 +13,12 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          ButtonWidget().iconbutton(icon: Icon(EneftyIcons.logout_outline))
+          IconButton(
+            onPressed: () {
+              ProfileWidget().logout(context);
+            },
+            icon: Icon(EneftyIcons.logout_outline),
+          ),
         ],
       ),
       body: SingleChildScrollView(

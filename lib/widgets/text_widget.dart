@@ -5,7 +5,7 @@ class TextWidget {
   text({data, size, weight, color, align, style}) {
     return Text(
       data,
-      style: GoogleFonts.montserrat(
+      style: GoogleFonts.aBeeZee(
           fontSize: size, fontWeight: weight, color: color, fontStyle: style),
       textAlign: align,
       overflow: TextOverflow.ellipsis,

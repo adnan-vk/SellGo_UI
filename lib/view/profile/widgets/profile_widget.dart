@@ -17,4 +17,31 @@ class ProfileWidget {
       ),
     );
   }
+
+   logout(context){
+    return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Logout'),
+                    content: Text('Are you sure you want to logout?'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Logout'),
+                      ),
+                    ],
+                  );
+                },
+              );
+  }
+  
 }
