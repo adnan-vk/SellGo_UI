@@ -3,7 +3,8 @@ import 'package:sellgo/widgets/navigator_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class ButtonWidget {
-  elevatedbutton({text, color, required context, page, textcolor}) {
+  elevatedbutton(
+      {text, color, required context, page, textcolor, icon, iconcolor}) {
     final size = MediaQuery.of(context).size;
     return ElevatedButton(
         onPressed: () => NavigatorHelper().push(context: context, page: page),
@@ -35,11 +36,11 @@ class ButtonWidget {
     );
   }
 
-  iconbutton({onpressed, icon}) {
-    return IconButton(
-        onPressed: () {
-          onpressed;
-        },
-        icon: icon);
-  }
+  // iconbutton({onpressed, icon}) {
+  //   return IconButton(
+  //       onPressed: () {
+  //         onpressed;
+  //       },
+  //       icon: icon);
+  // }
 }

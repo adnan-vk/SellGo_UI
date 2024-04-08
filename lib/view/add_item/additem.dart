@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sellgo/theme/colors.dart';
@@ -107,6 +108,7 @@ class _AddItemState extends State<AddItem> {
               SizedBox(height: 16),
               textFormField().textformfield(
                   hinttext: "Price", color: Colors.grey.shade200),
+              SizedBox(height: 24),
               SizedBox(height: 24),
               Center(
                   child: SizedBox(

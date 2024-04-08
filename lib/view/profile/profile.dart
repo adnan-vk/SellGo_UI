@@ -1,5 +1,6 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:sellgo/view/favourites/favourites.dart';
 import 'package:sellgo/view/profile/widgets/profile_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
@@ -66,7 +67,8 @@ class Profile extends StatelessWidget {
                   SizedBox(
                     height: size.height * .05,
                   ),
-                  ProfileWidget().container(text: "Favourites"),
+                  ProfileWidget().container(
+                      context: context, page: Favourites(), text: "Favourites"),
                   SizedBox(
                     height: size.height * .03,
                   ),

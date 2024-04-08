@@ -2,6 +2,7 @@ import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sellgo/theme/colors.dart';
+import 'package:sellgo/view/chatpage/chat.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/circleavatar_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
@@ -50,6 +51,8 @@ class Details extends StatelessWidget {
                     width: size.width * .02,
                   ),
                   circleavatar().circleAvatar(
+                      context: context,
+                      page: ChatPage(),
                       bgcolor: colors().blue,
                       child: Icon(
                         EneftyIcons.message_2_outline,
