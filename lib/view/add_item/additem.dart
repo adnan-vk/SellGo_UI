@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:enefty_icons/enefty_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
@@ -108,7 +110,24 @@ class _AddItemState extends State<AddItem> {
               SizedBox(height: 16),
               textFormField().textformfield(
                   hinttext: "Price", color: Colors.grey.shade200),
-              SizedBox(height: 24),
+              SizedBox(height: 10),
+              // SizedBox(height: 24),
+              GestureDetector(
+                onTap: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextWidget().text(
+                        data: "Allow Your Location", color: colors().blue),
+                    Icon(
+                      EneftyIcons.location_bold,
+                      size: 15,
+                      color: Colors.red,
+                    )
+                  ],
+                ),
+              ),
+
               SizedBox(height: 24),
               Center(
                   child: SizedBox(

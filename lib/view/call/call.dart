@@ -18,7 +18,7 @@ class CallingPage extends StatelessWidget {
             SizedBox(
               height: size.height * .03,
             ),
-            circleavatar().circleAvatar(radius: 100.0),
+            circleavatar().circleAvatar(context: context, radius: 100.0),
             SizedBox(height: size.height * .03),
             Text(
               'John Doe',

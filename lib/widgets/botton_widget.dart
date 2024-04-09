@@ -35,12 +35,4 @@ class ButtonWidget {
           weight: weight),
     );
   }
-
-  // iconbutton({onpressed, icon}) {
-  //   return IconButton(
-  //       onPressed: () {
-  //         onpressed;
-  //       },
-  //       icon: icon);
-  // }
 }

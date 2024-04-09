@@ -13,10 +13,10 @@ class favWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: ListTile(
-              contentPadding: EdgeInsets.all(12),
+              contentPadding: EdgeInsets.all(8),
               leading: Container(
-                width: 60,
-                height: 60,
+                width: 80,
+                height: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
@@ -46,7 +46,7 @@ class favWidget {
             ),
           ),
           Divider(
-            color: Colors.black,
+            color: Colors.grey[300],
           )
         ],
       ),

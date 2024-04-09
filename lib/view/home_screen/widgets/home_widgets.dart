@@ -13,7 +13,8 @@ class HomeWidgets {
     final size = MediaQuery.of(context).size;
     return Row(
       children: [
-        circleavatar().circleAvatar(radius: 20.0, bgcolor: colors().blue),
+        circleavatar().circleAvatar(
+            context: context, radius: 20.0, bgcolor: colors().blue),
         SizedBox(
           width: size.width * .02,
         ),
@@ -23,16 +24,14 @@ class HomeWidgets {
         SizedBox(
           width: size.width * .02,
         ),
-        GestureDetector(
-          onTap: () => NavigatorHelper()
-              .push(context: context, page: NotificationScreen()),
-          child: circleavatar().circleAvatar(
-              bgcolor: colors().blue,
-              child: Icon(
-                EneftyIcons.notification_outline,
-                color: Colors.white,
-              )),
-        )
+        circleavatar().circleAvatar(
+            context: context,
+            page: NotificationScreen(),
+            bgcolor: colors().blue,
+            child: Icon(
+              EneftyIcons.notification_outline,
+              color: Colors.white,
+            ))
       ],
     );
   }
@@ -64,6 +63,7 @@ class HomeWidgets {
             return Column(
               children: [
                 circleavatar().categoryavatar(
+                    context: context,
                     text: catorgoryName[categoryIndex],
                     child: Image(
                         image: NetworkImage(catorgoryItems[categoryIndex])))

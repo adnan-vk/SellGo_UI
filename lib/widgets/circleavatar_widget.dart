@@ -3,7 +3,7 @@ import 'package:sellgo/view/splash/splash.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
 class circleavatar {
-  circleAvatar({radius, child, bgcolor, context, page}) {
+  circleAvatar({radius, child, bgcolor, required context, page}) {
     return GestureDetector(
       onTap: () {
         NavigatorHelper().push(context: context, page: page);
@@ -16,10 +16,11 @@ class circleavatar {
     );
   }
 
-  categoryavatar({text, child}) {
+  categoryavatar({text, child, required context}) {
     return Column(
       children: [
-        circleavatar().circleAvatar(child: child, radius: 30.0),
+        circleavatar()
+            .circleAvatar(context: context, child: child, radius: 30.0),
         SizedBox(
           height: 6,
         ),
