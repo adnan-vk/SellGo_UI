@@ -5,6 +5,7 @@ import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/view/call/call.dart';
 import 'package:sellgo/view/chatpage/chat.dart';
 import 'package:sellgo/view/home_screen/home.dart';
+import 'package:sellgo/view/location/location.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/circleavatar_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
@@ -32,10 +33,39 @@ class Details extends StatelessWidget {
             ),
             Positioned(
                 top: size.height * .28,
-                child: TextWidget().text(data: "PRODUCT NAME")),
+                left: 10,
+                right: 10,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextWidget().text(data: "PRODUCT NAME"),
+                    TextButton(
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStatePropertyAll(Colors.grey),
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.grey[200])),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductLocationPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Location",
+                        style: TextStyle(
+                          color: Colors.red,
+                          // fontWeight: FontWeight.w400
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
             Positioned(
-                top: size.height * .31,
-                child: TextWidget().text(data: "PRODUCT NAME")),
+                top: size.height * .33,
+                child: TextWidget().text(data: "Other Details")),
             Positioned(
               bottom: size.height * .04,
               child: Row(
