@@ -1,10 +1,8 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/view/call/call.dart';
 import 'package:sellgo/view/chatpage/chat.dart';
-import 'package:sellgo/view/home_screen/home.dart';
 import 'package:sellgo/view/location/location.dart';
 import 'package:sellgo/widgets/botton_widget.dart';
 import 'package:sellgo/widgets/circleavatar_widget.dart';

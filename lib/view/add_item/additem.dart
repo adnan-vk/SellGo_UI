@@ -1,9 +1,7 @@
 import 'dart:io';
 
 import 'package:enefty_icons/enefty_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/widgets/botton_widget.dart';

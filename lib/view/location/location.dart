@@ -1,11 +1,9 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:sellgo/theme/colors.dart';
 
 class ProductLocationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
         body: Stack(
       children: [
@@ -20,7 +18,9 @@ class ProductLocationPage extends StatelessWidget {
           height: 170,
           left: 20,
           child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: Icon(
                 EneftyIcons.arrow_circle_left_outline,
               )),
@@ -28,11 +28,4 @@ class ProductLocationPage extends StatelessWidget {
       ],
     ));
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    title: 'Product Location Page',
-    home: ProductLocationPage(),
-  ));
 }

@@ -4,7 +4,6 @@ import 'package:sellgo/theme/colors.dart';
 import 'package:sellgo/view/details/details.dart';
 import 'package:sellgo/view/notification/notification.dart';
 import 'package:sellgo/widgets/circleavatar_widget.dart';
-import 'package:sellgo/widgets/navigator_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 import 'package:sellgo/widgets/textfield_widget.dart';
 

@@ -47,7 +47,7 @@ class _BottomBarState extends State<BottomBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(EneftyIcons.profile_circle_outline),
-            label: 'Person',
+            label: 'Profile',
           ),
         ],
       ),

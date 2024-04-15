@@ -1,6 +1,7 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:sellgo/view/favourites/favourites.dart';
+import 'package:sellgo/view/profile/help_and_support/help_support.dart';
 import 'package:sellgo/view/profile/widgets/profile_widget.dart';
 import 'package:sellgo/widgets/text_widget.dart';
 
@@ -76,7 +77,10 @@ class Profile extends StatelessWidget {
                   SizedBox(
                     height: size.height * .03,
                   ),
-                  ProfileWidget().container(text: "Help and support"),
+                  ProfileWidget().container(
+                      text: "Help and support",
+                      page: HelpSupport(),
+                      context: context),
                   SizedBox(
                     height: size.height * .03,
                   ),
